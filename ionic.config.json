@@ -1,0 +1,7 @@
+{
+  "name": "investec",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
