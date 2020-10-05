@@ -2,7 +2,10 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import Welcome from './pages/Welcome';
 import Home from './pages/Home';
+import Notify from './pages/Notify';
+// import Backgroundcheck from './components/Backgroundcheck'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,14 +27,24 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const App: React.FC = () => (
+  
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route path="/notify" component={Notify} exact={true} />
+        <Route exact path="/" render={()  => <Redirect to="/notify" />} /> 
         <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/" render={()  => <Redirect to="/home" />} />
+        <Route path="/welcome" component={Welcome} exact={true} />
+        <Route exact path="/" render={()  => <Redirect to="/welcome" />} />
+        {/* <Route path="/backgroundcheck" component={Backgroundcheck} exact={true} />
+        <Route exact path="/" render={()  => <Redirect to="/backgroundcheck" />} /> */}
+        
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
 
 export default App;
+
+
