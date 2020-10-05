@@ -5,7 +5,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 import Notify from './pages/Notify';
-// import Backgroundcheck from './components/Backgroundcheck'
+import Backgroundcheck from './components/Backgroundcheck'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,8 +37,8 @@ const App: React.FC = () => (
         <Route exact path="/" render={()  => <Redirect to="/home" />} />
         <Route path="/welcome" component={Welcome} exact={true} />
         <Route exact path="/" render={()  => <Redirect to="/welcome" />} />
-        {/* <Route path="/backgroundcheck" component={Backgroundcheck} exact={true} />
-        <Route exact path="/" render={()  => <Redirect to="/backgroundcheck" />} /> */}
+        <Route path="/backgroundcheck" component={Backgroundcheck} exact={true} />
+        <Route exact path="/" render={()  => <Redirect to="/backgroundcheck" />} />
         
       </IonRouterOutlet>
     </IonReactRouter>

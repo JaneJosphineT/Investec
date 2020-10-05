@@ -1,46 +1,78 @@
 import React, { Component } from 'react';
+import { isBrowser, isAndroid, isIOS, isEmulator, isMacOs, isWindows } from "react-device-detect";
+import './Backgroundcheck.css';
+import '../pages/Welcome.tsx';
+import { Link } from 'react-router-dom';
 
 export default class Backgroundcheck extends Component {
 
-    constructor(props) {
-        super(props);   
-        var isMobile = {
-            Android: function() {
-                return navigator.userAgent.match(/Android/i);
-            },
-            BlackBerry: function() {
-                return navigator.userAgent.match(/BlackBerry/i);
-            },
-            iOS: function() {
-                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-            },
-            Opera: function() {
-                return navigator.userAgent.match(/Opera Mini/i);
-            },
-            Windows: function() {
-                alert("Hi");
-                return navigator.userAgent.match(/IEMobile/i);
-            },
-            any: function() {
-                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-            }
-        };
-
+    renderContent = () => {
+        
+        if (isWindows) {
+            return <div className="app"> App runs in Windows
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+            
+        }
+         if (isAndroid) {
+            return <div className="app"> App runs in Android
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
+         if (isIOS) {
+            return <div className="app"> App runs in IOS 
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
+         if (isBrowser) {
+            return <div className="app"> App runs in Browser 
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
+         if (isMacOs) {
+            return <div className="app"> App runs in Simulator 
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
+         if (isEmulator) {
+            return <div className="app"> App runs in Emulator 
+            <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
+        else{
+        return <div className="app"> App is running 
+        <br></br>
+            <button type="button">
+            <Link to="/welcome" >Click me </Link></button>
+            
+            </div>
+        }
     }
      
-      render() {
+    render() {
        
-        if( isMobile.any() ) {
-            alert('Mobile');
-        }
-        return (
+        return this.renderContent();
 
-        <h2>Hi</h2>
-          
-         
-        )
-            
-      }
+    }
     
     }
+
     
